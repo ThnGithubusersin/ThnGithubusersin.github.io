@@ -151,35 +151,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/29/hello-world/" class="archive-article-date">
-  	<time datetime="2018-08-29T11:37:22.182Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="1-解压序列赋值给多个变量"><a href="#1-解压序列赋值给多个变量" class="headerlink" title="1. 解压序列赋值给多个变量"></a>1. 解压序列赋值给多个变量</h2><h3 id="1-1-问题"><a href="#1-1-问题" class="headerlink" title="1.1 问题"></a>1.1 问题</h3><p>现在有一个包含 N 个元素的元组或者是序列，怎样将它里面的值解压后同时赋值 给 N 个变量？</p>
+<h3 id="1-2-解决方案"><a href="#1-2-解决方案" class="headerlink" title="1.2 解决方案"></a>1.2 解决方案</h3><p>任何的序列 (或者是可迭代对象) 可以通过一个简单的赋值语句解压并赋值给多个 变量。唯一的前提就是变量的数量必须跟序列元素的数量是一样的。 </p>
+<h4 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p = (<span class="number">4</span>, <span class="number">5</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = p </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x </span><br><span class="line"><span class="number">4</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y </span><br><span class="line"><span class="number">5</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = [ <span class="string">'ACME'</span>, <span class="number">50</span>, <span class="number">91.1</span>, (<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>) ] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name, shares, price, date = data </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name <span class="string">'ACME'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>date (<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name, shares, price, (year, mon, day) = data</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name </span><br><span class="line"><span class="string">'ACME'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>year </span><br><span class="line"><span class="number">2012</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mon </span><br><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>day </span><br><span class="line"><span class="number">21</span></span><br></pre></td></tr></table></figure>
+<p>如果变量个数和序列元素的个数不匹配，会产生一个异常。 </p>
+<h4 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p = (<span class="number">4</span>, <span class="number">5</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y, z = p </span><br><span class="line">Traceback (most recent call last): </span><br><span class="line">File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt; </span><br><span class="line">ValueError: need more than <span class="number">2</span> values to unpack</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-讨论"><a href="#1-3-讨论" class="headerlink" title="1.3 讨论"></a>1.3 讨论</h3><p>实际上，这种解压赋值可以用在任何可迭代对象上面，而不仅仅是列表或者元组。 包括字符串，文件对象，迭代器和生成器。 </p>
+<h4 id="代码示例：-2"><a href="#代码示例：-2" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'Hello'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c, d, e = s </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line"><span class="string">'H'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b </span><br><span class="line"><span class="string">'e'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e </span><br><span class="line"><span class="string">'o'</span></span><br></pre></td></tr></table></figure>
+<p>有时候，你可能只想解压一部分，丢弃其他的值。对于这种情况 Python 并没有提 供特殊的语法。但是你可以使用任意变量名去占位，到时候丢掉这些变量就行了。 </p>
+<h4 id="代码示例：-3"><a href="#代码示例：-3" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; data = [ &apos;ACME&apos;, 50, 91.1, (2012, 12, 21) ] </span><br><span class="line">&gt;&gt;&gt; _, shares, price, _ = data </span><br><span class="line">&gt;&gt;&gt; shares </span><br><span class="line">50 </span><br><span class="line">&gt;&gt;&gt; price </span><br><span class="line">91.1</span><br></pre></td></tr></table></figure>
 
       
 
@@ -192,7 +177,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/29/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/29/Python基础知识/">展开全文 >></a>
         </p>
       
 
