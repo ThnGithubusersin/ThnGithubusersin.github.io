@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//thn.me">
-  <title>Thn的博客</title>
+  <title>Tag: Python | Thn的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="前端,python,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Thn的博客">
-<meta property="og:url" content="//thn.me/index.html">
+<meta property="og:url" content="//thn.me/tags/Python/index.html">
 <meta property="og:site_name" content="Thn的博客">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -155,43 +155,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Python基础技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/08/29/Python基础技巧/" class="archive-article-date">
+  	<time datetime="2018-08-29T14:54:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/29/Python基础技巧/">Python基础技巧</a>
+      <a class="archive-article-title" href="/2018/08/29/Python基础技巧/">Python基础技巧</a>
     </h1>
   
 
-        
-        <a href="/2018/08/29/Python基础技巧/" class="archive-article-date">
-  	<time datetime="2018-08-29T14:54:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-解压序列赋值给多个变量"><a href="#1-解压序列赋值给多个变量" class="headerlink" title="1. 解压序列赋值给多个变量"></a>1. 解压序列赋值给多个变量</h2><h3 id="1-1-问题"><a href="#1-1-问题" class="headerlink" title="1.1 问题"></a>1.1 问题</h3><p>现在有一个包含 N 个元素的元组或者是序列，怎样将它里面的值解压后同时赋值 给 N 个变量？</p>
-<h3 id="1-2-解决方案"><a href="#1-2-解决方案" class="headerlink" title="1.2 解决方案"></a>1.2 解决方案</h3><p>任何的序列 (或者是可迭代对象) 可以通过一个简单的赋值语句解压并赋值给多个 变量。唯一的前提就是变量的数量必须跟序列元素的数量是一样的。 </p>
-<h4 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p = (<span class="number">4</span>, <span class="number">5</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = p </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x </span><br><span class="line"><span class="number">4</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y </span><br><span class="line"><span class="number">5</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = [ <span class="string">'ACME'</span>, <span class="number">50</span>, <span class="number">91.1</span>, (<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>) ] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name, shares, price, date = data </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name <span class="string">'ACME'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>date (<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name, shares, price, (year, mon, day) = data</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name </span><br><span class="line"><span class="string">'ACME'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>year </span><br><span class="line"><span class="number">2012</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mon </span><br><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>day </span><br><span class="line"><span class="number">21</span></span><br></pre></td></tr></table></figure>
-<p>如果变量个数和序列元素的个数不匹配，会产生一个异常。 </p>
-<h4 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p = (<span class="number">4</span>, <span class="number">5</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y, z = p </span><br><span class="line">Traceback (most recent call last): </span><br><span class="line">File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt; </span><br><span class="line">ValueError: need more than <span class="number">2</span> values to unpack</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-讨论"><a href="#1-3-讨论" class="headerlink" title="1.3 讨论"></a>1.3 讨论</h3><p>实际上，这种解压赋值可以用在任何可迭代对象上面，而不仅仅是列表或者元组。 包括字符串，文件对象，迭代器和生成器。 </p>
-<h4 id="代码示例：-2"><a href="#代码示例：-2" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'Hello'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c, d, e = s </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line"><span class="string">'H'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b </span><br><span class="line"><span class="string">'e'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e </span><br><span class="line"><span class="string">'o'</span></span><br></pre></td></tr></table></figure>
-<p>有时候，你可能只想解压一部分，丢弃其他的值。对于这种情况 Python 并没有提 供特殊的语法。但是你可以使用任意变量名去占位，到时候丢掉这些变量就行了。 </p>
-<h4 id="代码示例：-3"><a href="#代码示例：-3" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; data = [ &apos;ACME&apos;, 50, 91.1, (2012, 12, 21) ] </span><br><span class="line">&gt;&gt;&gt; _, shares, price, _ = data </span><br><span class="line">&gt;&gt;&gt; shares </span><br><span class="line">50 </span><br><span class="line">&gt;&gt;&gt; price </span><br><span class="line">91.1</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,97 +194,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/29/Python基础技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-Python基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-解压序列赋值给多个变量"><a href="#1-解压序列赋值给多个变量" class="headerlink" title="1. 解压序列赋值给多个变量"></a>1. 解压序列赋值给多个变量</h2><h3 id="1-1-问题"><a href="#1-1-问题" class="headerlink" title="1.1 问题"></a>1.1 问题</h3><p>现在有一个包含 N 个元素的元组或者是序列，怎样将它里面的值解压后同时赋值 给 N 个变量？</p>
-<h3 id="1-2-解决方案"><a href="#1-2-解决方案" class="headerlink" title="1.2 解决方案"></a>1.2 解决方案</h3><p>任何的序列 (或者是可迭代对象) 可以通过一个简单的赋值语句解压并赋值给多个 变量。唯一的前提就是变量的数量必须跟序列元素的数量是一样的。 </p>
-<h4 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p = (<span class="number">4</span>, <span class="number">5</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = p </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x </span><br><span class="line"><span class="number">4</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y </span><br><span class="line"><span class="number">5</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = [ <span class="string">'ACME'</span>, <span class="number">50</span>, <span class="number">91.1</span>, (<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>) ] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name, shares, price, date = data </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name <span class="string">'ACME'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>date (<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name, shares, price, (year, mon, day) = data</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>name </span><br><span class="line"><span class="string">'ACME'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>year </span><br><span class="line"><span class="number">2012</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mon </span><br><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>day </span><br><span class="line"><span class="number">21</span></span><br></pre></td></tr></table></figure>
-<p>如果变量个数和序列元素的个数不匹配，会产生一个异常。 </p>
-<h4 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>p = (<span class="number">4</span>, <span class="number">5</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y, z = p </span><br><span class="line">Traceback (most recent call last): </span><br><span class="line">File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt; </span><br><span class="line">ValueError: need more than <span class="number">2</span> values to unpack</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-讨论"><a href="#1-3-讨论" class="headerlink" title="1.3 讨论"></a>1.3 讨论</h3><p>实际上，这种解压赋值可以用在任何可迭代对象上面，而不仅仅是列表或者元组。 包括字符串，文件对象，迭代器和生成器。 </p>
-<h4 id="代码示例：-2"><a href="#代码示例：-2" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'Hello'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b, c, d, e = s </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line"><span class="string">'H'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b </span><br><span class="line"><span class="string">'e'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e </span><br><span class="line"><span class="string">'o'</span></span><br></pre></td></tr></table></figure>
-<p>有时候，你可能只想解压一部分，丢弃其他的值。对于这种情况 Python 并没有提 供特殊的语法。但是你可以使用任意变量名去占位，到时候丢掉这些变量就行了。 </p>
-<h4 id="代码示例：-3"><a href="#代码示例：-3" class="headerlink" title="代码示例："></a>代码示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; data = [ &apos;ACME&apos;, 50, 91.1, (2012, 12, 21) ] </span><br><span class="line">&gt;&gt;&gt; _, shares, price, _ = data </span><br><span class="line">&gt;&gt;&gt; shares </span><br><span class="line">50 </span><br><span class="line">&gt;&gt;&gt; price </span><br><span class="line">91.1</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/29/Python基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -315,10 +228,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
