@@ -17,7 +17,7 @@
 <meta property="og:description" content="Docker简介软件开发中最为麻烦的事情可能就是配置环境了。由于用户使用的操作系统具有多样性，即便使用跨平台的开发语言（如Java和Python）都不能保证代码能够在各种平台下都可以正常的运转，而且可能在不同的环境下我们的软件需要依赖的其他软件包也是不一样的。 那么问题来了，我们再安装软件的时候可不可以把软件运行的环境一并安装课？也就是说在安装软件的时候，我们是不是可以把原始环境一模一样地复制过来">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/30/Docker简易上手指南/assets/img/docker_vs_vm.png">
-<meta property="og:updated_time" content="2018-08-30T10:08:19.042Z">
+<meta property="og:updated_time" content="2018-08-30T16:17:15.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker简易上手指南">
 <meta name="twitter:description" content="Docker简介软件开发中最为麻烦的事情可能就是配置环境了。由于用户使用的操作系统具有多样性，即便使用跨平台的开发语言（如Java和Python）都不能保证代码能够在各种平台下都可以正常的运转，而且可能在不同的环境下我们的软件需要依赖的其他软件包也是不一样的。 那么问题来了，我们再安装软件的时候可不可以把软件运行的环境一并安装课？也就是说在安装软件的时候，我们是不是可以把原始环境一模一样地复制过来">
@@ -183,6 +183,7 @@
 <p>那么问题来了，我们再安装软件的时候可不可以把软件运行的环境一并安装课？也就是说在安装软件的时候，我们是不是可以把原始环境一模一样地复制过来呢？</p>
 <p>虚拟机（virtual machine）就是带环境安装的一种解决方案，它可以在一种操作系统里面运行另一种操作系统，比如在Windows系统里面运行Linux系统，在macOS上运行Windows，而应用程序对此毫无感知。使用过虚拟机的人都知道，虚拟机用起来跟真实系统一模一样，而对于虚拟机的宿主系统来说，虚拟机就是一个普通文件，不需要了就删掉，对宿主系统或者其他的程序并没有影响。但是虚拟机通常会占用较多的系统资源，启动和关闭也非常的缓慢，总之用户体验没有想象中的那么好。</p>
 <p>Docker属于对Linux容器技术的一种封装，它提供了简单易用的容器使用接口，是目前最流行的 Linux 容器解决方案。Docker将应用程序与该程序的依赖打包在一个文件里面，运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了Docker就再也不用担心环境问题了。</p>
+<a id="more"></a>
 <p><img src=".\assets\img\docker_vs_vm.png" alt="docker_vs_vm"></p>
 <p>目前，Docker主要用于几下几个方面：</p>
 <ol>
