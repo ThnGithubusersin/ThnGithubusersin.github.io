@@ -5,18 +5,18 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//thn.me">
+  <link rel="dns-prefetch" href="https://github.com/ThnGithubusersin">
   <title>Python基础技巧(一)---字典 | Thn的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. 字典中的键映射多个值1.1 问题怎样实现一个键对应多个值的字典 (也叫 multidict )？ 1.2 解决方案一个字典就是一个键对应一个单值的映射。如果想要一个键映射多个值，那么就需要将这多个值放到另外的容器中，比如列表或者集合里面： 12345678d = &amp;#123;     &apos;a&apos; : [1, 2, 3],     &apos;b&apos; : [4, 5] &amp;#125; e = &amp;#123;">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python基础技巧(一)---字典">
-<meta property="og:url" content="//thn.me/2018/08/30/Python基础技巧-一-字典/index.html">
+<meta property="og:url" content="https://github.com/ThnGithubusersin/2018/08/30/Python基础技巧-一-字典/index.html">
 <meta property="og:site_name" content="Thn的博客">
 <meta property="og:description" content="1. 字典中的键映射多个值1.1 问题怎样实现一个键对应多个值的字典 (也叫 multidict )？ 1.2 解决方案一个字典就是一个键对应一个单值的映射。如果想要一个键映射多个值，那么就需要将这多个值放到另外的容器中，比如列表或者集合里面： 12345678d = &amp;#123;     &apos;a&apos; : [1, 2, 3],     &apos;b&apos; : [4, 5] &amp;#125; e = &amp;#123;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-30T13:07:33.750Z">
+<meta property="og:updated_time" content="2018-08-30T16:13:30.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python基础技巧(一)---字典">
 <meta name="twitter:description" content="1. 字典中的键映射多个值1.1 问题怎样实现一个键对应多个值的字典 (也叫 multidict )？ 1.2 解决方案一个字典就是一个键对应一个单值的映射。如果想要一个键映射多个值，那么就需要将这多个值放到另外的容器中，比如列表或者集合里面： 12345678d = &amp;#123;     &apos;a&apos; : [1, 2, 3],     &apos;b&apos; : [4, 5] &amp;#125; e = &amp;#123;">
@@ -47,11 +47,11 @@
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<a href="/" class="profilepic">
+		<a href="" class="profilepic">
 			<img src="/assets/blogImg/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Thn</a></h1>
+		  <h1 class="header-author"><a href="">Thn</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">质量、速度、廉价，选择其中两个</p>
@@ -86,7 +86,7 @@
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sina-thn/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
@@ -129,7 +129,7 @@
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/sina-thn/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
@@ -181,6 +181,7 @@
 <h3 id="1-2-解决方案"><a href="#1-2-解决方案" class="headerlink" title="1.2 解决方案"></a>1.2 解决方案</h3><p>一个字典就是一个键对应一个单值的映射。如果想要一个键映射多个值，那么就需要将这多个值放到另外的容器中，比如列表或者集合里面：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">d = &#123; </span><br><span class="line">    <span class="string">'a'</span> : [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], </span><br><span class="line">    <span class="string">'b'</span> : [<span class="number">4</span>, <span class="number">5</span>] </span><br><span class="line">&#125; </span><br><span class="line">e = &#123; </span><br><span class="line">    <span class="string">'a'</span> : &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, </span><br><span class="line">    <span class="string">'b'</span> : &#123;<span class="number">4</span>, <span class="number">5</span>&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> 如果想保持元素的插入顺序就应该使用列表，如果想去掉重复元素就使用集合（并且不关心元素的顺序问题）。 </p>
+<a id="more"></a>
 <p>Python的 collections 模块中的 defaultdict 可以很方便的构造这样的字典。 defaultdict 的一个特征是它会自动初始化每个 key 刚开始对应的值，所以只需要关注添加元素操作。比如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line">d = defaultdict(list) </span><br><span class="line">d[<span class="string">'a'</span>].append(<span class="number">1</span>) </span><br><span class="line">d[<span class="string">'a'</span>].append(<span class="number">2</span>) </span><br><span class="line">d[<span class="string">'b'</span>].append(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">d = defaultdict(set) </span><br><span class="line">d[<span class="string">'a'</span>].add(<span class="number">1</span>) </span><br><span class="line">d[<span class="string">'a'</span>].add(<span class="number">2</span>) </span><br><span class="line">d[<span class="string">'b'</span>].add(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
 <p> 需要注意的是， defaultdict 会自动为将要访问的键 (就算目前字典中并不存在这 样的键) 创建映射实体。如果不需要这样的特性，可以在一个普通的字典上使用 setdefault() 方法来代替。比如：</p>
@@ -318,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://thn.me/2018/08/30/Python基础技巧-一-字典/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/ThnGithubusersin/2018/08/30/Python基础技巧-一-字典/" alt="微信分享二维码">
     </div>
 </div>
 
