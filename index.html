@@ -155,32 +155,32 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Python基础技巧-一-字典" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Docker简易上手指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/30/Python基础技巧-一-字典/">Python基础技巧(一)---字典</a>
+      <a class="article-title" href="/2018/03/26/Docker简易上手指南/">Docker简易上手指南</a>
     </h1>
   
 
         
-        <a href="/2018/08/30/Python基础技巧-一-字典/" class="archive-article-date">
-  	<time datetime="2018-08-30T12:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
+        <a href="/2018/03/26/Docker简易上手指南/" class="archive-article-date">
+  	<time datetime="2018-03-26T09:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-字典中的键映射多个值"><a href="#1-字典中的键映射多个值" class="headerlink" title="1. 字典中的键映射多个值"></a>1. 字典中的键映射多个值</h2><h3 id="1-1-问题"><a href="#1-1-问题" class="headerlink" title="1.1 问题"></a>1.1 问题</h3><p>怎样实现一个键对应多个值的字典 (也叫 multidict )？</p>
-<h3 id="1-2-解决方案"><a href="#1-2-解决方案" class="headerlink" title="1.2 解决方案"></a>1.2 解决方案</h3><p>一个字典就是一个键对应一个单值的映射。如果想要一个键映射多个值，那么就需要将这多个值放到另外的容器中，比如列表或者集合里面：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">d = &#123; </span><br><span class="line">    <span class="string">'a'</span> : [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], </span><br><span class="line">    <span class="string">'b'</span> : [<span class="number">4</span>, <span class="number">5</span>] </span><br><span class="line">&#125; </span><br><span class="line">e = &#123; </span><br><span class="line">    <span class="string">'a'</span> : &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, </span><br><span class="line">    <span class="string">'b'</span> : &#123;<span class="number">4</span>, <span class="number">5</span>&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 如果想保持元素的插入顺序就应该使用列表，如果想去掉重复元素就使用集合（并且不关心元素的顺序问题）。 </p>
+        <h3 id="Docker简介"><a href="#Docker简介" class="headerlink" title="Docker简介"></a>Docker简介</h3><p>软件开发中最为麻烦的事情可能就是配置环境了。由于用户使用的操作系统具有多样性，即便使用跨平台的开发语言（如Java和Python）都不能保证代码能够在各种平台下都可以正常的运转，而且可能在不同的环境下我们的软件需要依赖的其他软件包也是不一样的。</p>
+<p>那么问题来了，我们再安装软件的时候可不可以把软件运行的环境一并安装课？也就是说在安装软件的时候，我们是不是可以把原始环境一模一样地复制过来呢？</p>
+<p>虚拟机（virtual machine）就是带环境安装的一种解决方案，它可以在一种操作系统里面运行另一种操作系统，比如在Windows系统里面运行Linux系统，在macOS上运行Windows，而应用程序对此毫无感知。使用过虚拟机的人都知道，虚拟机用起来跟真实系统一模一样，而对于虚拟机的宿主系统来说，虚拟机就是一个普通文件，不需要了就删掉，对宿主系统或者其他的程序并没有影响。但是虚拟机通常会占用较多的系统资源，启动和关闭也非常的缓慢，总之用户体验没有想象中的那么好。</p>
+<p>Docker属于对Linux容器技术的一种封装，它提供了简单易用的容器使用接口，是目前最流行的 Linux 容器解决方案。Docker将应用程序与该程序的依赖打包在一个文件里面，运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了Docker就再也不用担心环境问题了。</p>
         
-          <a class="article-more-a" href="/2018/08/30/Python基础技巧-一-字典/#more">more >></a>
+          <a class="article-more-a" href="/2018/03/26/Docker简易上手指南/#more">more >></a>
         
       
 
@@ -194,7 +194,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -204,7 +204,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/30/Python基础技巧-一-字典/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/26/Docker简易上手指南/">展开全文 >></a>
         </p>
       
 
@@ -234,32 +234,32 @@
 
 
   
-    <article id="post-Docker简易上手指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python基础技巧-一-字典" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/30/Docker简易上手指南/">Docker简易上手指南</a>
+      <a class="article-title" href="/2017/09/10/Python基础技巧-一-字典/">Python基础技巧(一)---字典</a>
     </h1>
   
 
         
-        <a href="/2018/08/30/Docker简易上手指南/" class="archive-article-date">
-  	<time datetime="2018-08-30T09:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-30</time>
+        <a href="/2017/09/10/Python基础技巧-一-字典/" class="archive-article-date">
+  	<time datetime="2017-09-10T12:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Docker简介"><a href="#Docker简介" class="headerlink" title="Docker简介"></a>Docker简介</h3><p>软件开发中最为麻烦的事情可能就是配置环境了。由于用户使用的操作系统具有多样性，即便使用跨平台的开发语言（如Java和Python）都不能保证代码能够在各种平台下都可以正常的运转，而且可能在不同的环境下我们的软件需要依赖的其他软件包也是不一样的。</p>
-<p>那么问题来了，我们再安装软件的时候可不可以把软件运行的环境一并安装课？也就是说在安装软件的时候，我们是不是可以把原始环境一模一样地复制过来呢？</p>
-<p>虚拟机（virtual machine）就是带环境安装的一种解决方案，它可以在一种操作系统里面运行另一种操作系统，比如在Windows系统里面运行Linux系统，在macOS上运行Windows，而应用程序对此毫无感知。使用过虚拟机的人都知道，虚拟机用起来跟真实系统一模一样，而对于虚拟机的宿主系统来说，虚拟机就是一个普通文件，不需要了就删掉，对宿主系统或者其他的程序并没有影响。但是虚拟机通常会占用较多的系统资源，启动和关闭也非常的缓慢，总之用户体验没有想象中的那么好。</p>
-<p>Docker属于对Linux容器技术的一种封装，它提供了简单易用的容器使用接口，是目前最流行的 Linux 容器解决方案。Docker将应用程序与该程序的依赖打包在一个文件里面，运行这个文件，就会生成一个虚拟容器。程序在这个虚拟容器里运行，就好像在真实的物理机上运行一样。有了Docker就再也不用担心环境问题了。</p>
+        <h2 id="1-字典中的键映射多个值"><a href="#1-字典中的键映射多个值" class="headerlink" title="1. 字典中的键映射多个值"></a>1. 字典中的键映射多个值</h2><h3 id="1-1-问题"><a href="#1-1-问题" class="headerlink" title="1.1 问题"></a>1.1 问题</h3><p>怎样实现一个键对应多个值的字典 (也叫 multidict )？</p>
+<h3 id="1-2-解决方案"><a href="#1-2-解决方案" class="headerlink" title="1.2 解决方案"></a>1.2 解决方案</h3><p>一个字典就是一个键对应一个单值的映射。如果想要一个键映射多个值，那么就需要将这多个值放到另外的容器中，比如列表或者集合里面：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">d = &#123; </span><br><span class="line">    <span class="string">'a'</span> : [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], </span><br><span class="line">    <span class="string">'b'</span> : [<span class="number">4</span>, <span class="number">5</span>] </span><br><span class="line">&#125; </span><br><span class="line">e = &#123; </span><br><span class="line">    <span class="string">'a'</span> : &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, </span><br><span class="line">    <span class="string">'b'</span> : &#123;<span class="number">4</span>, <span class="number">5</span>&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 如果想保持元素的插入顺序就应该使用列表，如果想去掉重复元素就使用集合（并且不关心元素的顺序问题）。 </p>
         
-          <a class="article-more-a" href="/2018/08/30/Docker简易上手指南/#more">more >></a>
+          <a class="article-more-a" href="/2017/09/10/Python基础技巧-一-字典/#more">more >></a>
         
       
 
@@ -273,7 +273,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -283,7 +283,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/30/Docker简易上手指南/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/09/10/Python基础技巧-一-字典/">展开全文 >></a>
         </p>
       
 
@@ -320,13 +320,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/29/Python基础技巧/">Python基础技巧(一)---元素、变量</a>
+      <a class="article-title" href="/2017/08/29/Python基础技巧/">Python基础技巧(一)---元素、变量</a>
     </h1>
   
 
         
-        <a href="/2018/08/29/Python基础技巧/" class="archive-article-date">
-  	<time datetime="2018-08-29T14:54:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
+        <a href="/2017/08/29/Python基础技巧/" class="archive-article-date">
+  	<time datetime="2017-08-29T14:54:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
 </a>
         
       </header>
@@ -339,7 +339,7 @@
 <p>如果变量个数和序列元素的个数不匹配，会产生一个异常。 </p>
 <h4 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h4>
         
-          <a class="article-more-a" href="/2018/08/29/Python基础技巧/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/29/Python基础技巧/#more">more >></a>
         
       
 
@@ -363,7 +363,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/29/Python基础技巧/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/29/Python基础技巧/">展开全文 >></a>
         </p>
       
 
@@ -482,11 +482,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
