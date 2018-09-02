@@ -21,12 +21,9 @@
 <meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/18/Django知识点概述/assets/img/mvc.png">
 <meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/18/Django知识点概述/assets/img/http-request.png">
 <meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/18/Django知识点概述/assets/img/http-response.png">
-<meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/18/Django知识点概述/assets/img/template-tag.png">
-<meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/18/Django知识点概述/assets/img/template-tags.png">
 <meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/18/Django知识点概述/assets/img/builtin-middlewares.png">
-<meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/18/Django知识点概述/assets/img/tag.png">
 <meta property="og:image" content="https://github.com/ThnGithubusersin/2018/08/18/Django知识点概述/assets/img/celery.png">
-<meta property="og:updated_time" content="2018-09-02T15:09:24.363Z">
+<meta property="og:updated_time" content="2018-09-02T15:19:26.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django知识点概述">
 <meta name="twitter:description" content="Django知识点概述Web应用 问题1：描述一个Web应用的工作流程。（如上图所示） 问题2：描述项目的物理架构。（上图中补充反向代理服务器、负载均衡服务器、数据库服务器、文件服务器、缓存服务器、防火墙等，每个节点都有可能是多节点构成的集群） 问题3：描述Django项目的工作流程。（如下图所示）  MVC架构模式 问题1：为什么要使用MVC架构模式？（模型和视图解耦合） 问题2：MVC架构中每">
@@ -421,9 +418,7 @@
 </ul>
 </li>
 <li><p>模板标签的使用。</p>
-<ul>
-<li><img src="./assets/img/template-tag.png" alt=""></li>
-</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- &#123;% <span class="keyword">if</span> %&#125; / &#123;% <span class="keyword">else</span> %&#125; / &#123;% endif %&#125;</span><br><span class="line">- &#123;% <span class="keyword">for</span> %&#125; / &#123;% endfor %&#125;</span><br><span class="line">- &#123;% ifequal %&#125; / &#123;% endifequal %&#125; / &#123;% ifnotequal %&#125; / &#123;% endifnotequal %&#125;</span><br><span class="line">- &#123;<span class="comment"># comment #&#125; / &#123;% comment %&#125; / &#123;% endcomment %&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>过滤器的使用。</p>
 <ul>
@@ -431,9 +426,7 @@
 </ul>
 </li>
 <li><p>模板的包含和继承。</p>
-<ul>
-<li><img src="./assets/img/template-tags.png" alt=""></li>
-</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- &#123;% include %&#125; / &#123;% block %&#125;</span><br><span class="line">- &#123;% extends %&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>模板加载器（后面优化部分会讲到）。</p>
 <ul>
@@ -581,9 +574,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views.decorators.cache <span class="keyword">import</span> cache_page</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^foo/([0-9]&#123;1,2&#125;)/$'</span>, cache_page(<span class="number">60</span> * <span class="number">15</span>)(my_view)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <h4 id="其他内容"><a href="#其他内容" class="headerlink" title="其他内容"></a>其他内容</h4><ol>
 <li><p>模板片段缓存。</p>
-<ul>
-<li><img src="./assets/img/tag.png" alt=""></li>
-</ul>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- &#123;% load cache %&#125;</span><br><span class="line">- &#123;% cache %&#125; / &#123;% endcache %&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用底层API访问缓存。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> django.core.cache <span class="keyword">import</span> cache</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cache.set(<span class="string">'my_key'</span>, <span class="string">'hello, world!'</span>, <span class="number">30</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cache.get(<span class="string">'my_key'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cache.clear()</span><br></pre></td></tr></table></figure>
@@ -1069,11 +1060,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
