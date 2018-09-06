@@ -321,6 +321,91 @@
 
 
   
+    <article id="post-并发订单下单问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/26/并发订单下单问题/">Django数据库事务——用户并发下单问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/26/并发订单下单问题/" class="archive-article-date">
+  	<time datetime="2018-03-26T09:12:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>假如，商品的库存还有10件，2人同时下订单，每人买5件，2人下单都成功后商品库存可能还有5件；或者三个人同时下订单，每人买五件，每个人都下单成功，但库存是负的。</p>
+<p>为了模拟2人同时下单的情况，创建订单视图函数<code>OrderCommitView</code>：</p>
+<p>在其中要进行向订单信息表增加一段延时代码片段，这样可以保证两个订单在向<code>df_order_goods</code>中添加一条记录时为并发：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从redis中获取用户要购买的商品的数量</span></span><br><span class="line">         count = conn.hget(cart_key, sku_id)</span><br><span class="line">         <span class="comment"># 模拟订单并发问题</span></span><br><span class="line">         print(<span class="string">'user: %d'</span> % user.id)   <span class="comment"># 打印创建订单的用户ID</span></span><br><span class="line">         <span class="keyword">import</span> time</span><br><span class="line">         time.sleep(<span class="number">10</span>)</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line">         <span class="comment"># 向df_order_goods中添加一条记录</span></span><br><span class="line">         OrderGoods.objects.create(</span><br><span class="line">             order=order,</span><br><span class="line">             sku=sku,</span><br><span class="line">             count=count,</span><br><span class="line">             price=sku.price</span><br><span class="line">         )</span><br></pre></td></tr></table></figure>
+<p>这时修改后台数据库，将商品id为1的草莓商品库存设置为10：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; update df_goods_sku set stock=10 where id=1;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">Rows matched: 1  Changed: 1  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from df_goods_sku where id=1 \G;</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">         id: 1</span><br><span class="line">create_time: 2017-11-15 03:10:14.045538</span><br><span class="line">update_time: 2018-03-21 06:40:31.013426</span><br><span class="line">  is_delete: 0</span><br><span class="line">       name: 草莓 500g</span><br><span class="line">       desc: 草莓简介</span><br><span class="line">      price: 10.00</span><br><span class="line">      unite: 500g</span><br><span class="line">      image: group1/M00/00/00/rBCzg1oKqFGAR2tjAAAljHPuXJg4272079</span><br><span class="line">      stock: 10</span><br><span class="line">      sales: 25</span><br><span class="line">     status: 1</span><br><span class="line">   goods_id: 1</span><br><span class="line">category_id: 1</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/03/26/并发订单下单问题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/26/并发订单下单问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Python基础技巧-一-字典" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -582,6 +667,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Django</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>
